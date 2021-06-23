@@ -63,9 +63,9 @@ spec:
         image: fluent/fluentd-kubernetes-daemonset:v1.9-debian-1
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
-            value: "elasticsearch.kube-logging.svc.cluster.local"
+            value: "https://search-test-me-jqelgqdogbb2r4kz34viwm34ea.eu-central-1.es.amazonaws.com/"
           - name:  FLUENT_ELASTICSEARCH_PORT
-            value: "9200"
+            value: "443"
           - name: FLUENT_ELASTICSEARCH_SCHEME
             value: "https"
           - name: FLUENTD_SYSTEMD_CONF
