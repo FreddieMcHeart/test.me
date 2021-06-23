@@ -1,5 +1,5 @@
 ---
-- hosts: star-node-03
+- hosts: all
   tasks:
 
     - name: Install Docker vars
