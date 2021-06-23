@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+  - name: Copy rc files
+    copy:
+      src: "{{ item }}"
+      dest: /root/
+      owner: root
+      group: root
+      mode: '0644'
+    with_items:
+      - /etc/ansible/sources/.vimrc
+      - /etc/ansible/sources/.bashrc
+      - /etc/ansible/sources/.screenrc
+      - /etc/ansible/sources/.inputrc

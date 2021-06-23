@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: Install a list of packages
+      apt:
+        name: "{{ packages }}"
+        update_cache: true
+      vars:
+        packages:
+          - screen
+          - htop
+          - vim
+          - net-tools
+          - python

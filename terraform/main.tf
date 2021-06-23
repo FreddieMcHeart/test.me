@@ -63,7 +63,7 @@ resource "aws_elasticsearch_domain" "test-me" {
   elasticsearch_version = "7.10"
 
   cluster_config {
-    instance_type = "t2.small.elasticsearch"
+    instance_type  = "t2.small.elasticsearch"
     instance_count = 1
   }
 
@@ -80,4 +80,3 @@ resource "aws_elasticsearch_domain" "test-me" {
     Domain = "Test-Me"
   }
 }
-

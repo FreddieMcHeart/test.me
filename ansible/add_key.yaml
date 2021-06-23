@@ -1,0 +1,21 @@
+---
+- hosts: all
+  vars:
+    ssh_key_nazarii: '/opt/nazarii_ssh_key.pub'
+    ssh_key_nazarii_small: '/opt/nazarii_ssh_key_small.pub'
+    git_conf_file: '/opt/config'
+  tasks:
+    - name: copy ssh key nazarii
+      authorized_key:
+        key: "{{ lookup('file', ssh_key_nazarii) }}"
+        user: root
+
+    - name: copy ssh key nazarii small
+      authorized_key:
+        key: "{{ lookup('file', ssh_key_nazarii_small) }}"
+        user: root
+
+    - name: copy git config file
+      authorized_key:
+        key: "{{ lookup('file', git_conf_file) }}"
+        user: root
