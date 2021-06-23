@@ -1,9 +1,16 @@
 - hosts: all
   tasks:
 
-    - name: Install dependencies
+    - name: Install minikube
+      get_url:
+        url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+        dest: /usr/local/bin/minikube
+
+
+    - name: Make minikube executable
       shell: |
-        curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-        chmod +x minikube
-        mv minikube /usr/local/bin/
+        chmod +x /usr/local/bin/minikube
+
+    - name: Start minikube
+      shell: |
         minikube start --vm-driver=none

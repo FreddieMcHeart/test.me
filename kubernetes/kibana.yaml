@@ -38,6 +38,6 @@ spec:
             cpu: 100m
         env:
           - name: ELASTICSEARCH_URL
-            value: http://elasticsearch:9200
+            value: https://search-test-me-jqelgqdogbb2r4kz34viwm34ea.eu-central-1.es.amazonaws.com/
         ports:
         - containerPort: 5601
