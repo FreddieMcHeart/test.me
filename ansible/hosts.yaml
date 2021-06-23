@@ -4,5 +4,5 @@ all:
     ansible_python_interpreter: /usr/bin/python3
   hosts:
     minikube:
-      ansible_host:
+      ansible_host: 3.67.222.44
       ansible_port: 22
