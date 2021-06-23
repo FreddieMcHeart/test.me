@@ -60,7 +60,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
+        image: fluent/fluentd-kubernetes-daemonset:v1.12-debian-elasticsearch7-1
         env:
           - name: AWS_REGION
             value: eu-central-1
