@@ -12,3 +12,4 @@
           - vim
           - net-tools
           - python
+          - conntrack
