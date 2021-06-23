@@ -75,3 +75,24 @@ resource "aws_elasticsearch_domain" "test-me" {
     Domain = "Test-Me"
   }
 }
+
+resource "aws_elasticsearch_domain_policy" "main" {
+  domain_name = aws_elasticsearch_domain.test-me.domain_name
+
+  access_policies = <<POLICIES
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "es:*",
+            "Principal": "*",
+            "Effect": "Allow",
+            "Condition": {
+                "IpAddress": {"aws:SourceIp": ["3.67.222.44/32", "178.150.230.152/32"]}
+            },
+            "Resource": "${aws_elasticsearch_domain.test-me.arn}/*"
+        }
+    ]
+}
+POLICIES
+}
