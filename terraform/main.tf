@@ -69,7 +69,7 @@ resource "aws_elasticsearch_domain" "test-me" {
 
   ebs_options {
     ebs_enabled = true
-    volume_size = 5
+    volume_size = 10
   }
 
   snapshot_options {
