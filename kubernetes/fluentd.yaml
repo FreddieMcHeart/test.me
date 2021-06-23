@@ -62,12 +62,10 @@ spec:
       - name: fluentd
         image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
         env:
-          - name:  FLUENT_ELASTICSEARCH_HOST
+          - name: AWS_REGION
+            value: eu-central-1
+          - name:  AWS_ELASTICSEARCH_URL
             value: "https://search-test-me-jqelgqdogbb2r4kz34viwm34ea.eu-central-1.es.amazonaws.com"
-          - name:  FLUENT_ELASTICSEARCH_PORT
-            value: "443"
-          - name: FLUENTD_SYSTEMD_CONF
-            value: disable
         resources:
           limits:
             memory: 512Mi
