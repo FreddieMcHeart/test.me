@@ -64,6 +64,12 @@ resource "aws_elasticsearch_domain" "test-me" {
 
   cluster_config {
     instance_type = "t2.small.elasticsearch"
+    instance_count = 1
+  }
+
+  ebs_options {
+    ebs_enabled = true
+    volume_size = 5
   }
 
   snapshot_options {
