@@ -8,8 +8,7 @@
 
 
     - name: Make minikube executable
-      shell: |
-        chmod +x /usr/local/bin/minikube
+      file: dest=/usr/local/bin/minikube mode=a+x
 
     - name: Start minikube
       shell: |
