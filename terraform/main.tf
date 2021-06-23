@@ -60,7 +60,7 @@ resource "aws_instance" "test-me-server" {
 
 resource "aws_elasticsearch_domain" "test-me" {
   domain_name           = "test-me"
-  elasticsearch_version = "latest"
+  elasticsearch_version = "7.10"
 
   cluster_config {
     instance_type = "t2.small.elasticsearch"
@@ -74,3 +74,4 @@ resource "aws_elasticsearch_domain" "test-me" {
     Domain = "Test-Me"
   }
 }
+
