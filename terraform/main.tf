@@ -88,7 +88,7 @@ resource "aws_elasticsearch_domain_policy" "main" {
             "Principal": "*",
             "Effect": "Allow",
             "Condition": {
-                "IpAddress": {"aws:SourceIp": ["3.120.150.236/32", "178.150.230.152/32, 172.31.0.0/16"]}
+                "IpAddress": {"aws:SourceIp": ["3.120.150.236/32", "178.150.230.152/32, 172.31.0.0/16, 54.93.0.0/24"]}
             },
             "Resource": "${aws_elasticsearch_domain.test-me.arn}/*"
         }
