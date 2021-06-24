@@ -59,16 +59,14 @@ spec:
         effect: NoSchedule
       containers:
       - name: fluentd
-        image: fluent/fluentd-kubernetes-daemonset:v1.12-debian-elasticsearch7-1
+        image: fluent/fluentd-kubernetes-daemonset:v1.4.2-debian-elasticsearch-1.1
         env:
-          - name: AWS_REGION
-            value: eu-central-1
-          - name:  AWS_ELASTICSEARCH_URL
+          - name:  FLUENT_ELASTICSEARCH_HOST
             value: "https://search-test-me-jqelgqdogbb2r4kz34viwm34ea.eu-central-1.es.amazonaws.com"
-          - name: AWS_ACCESS_KEY_ID
-            value: AKIA3NTM6U532P7K2F5R
-          - name: AWS_SECRET_ACCESS_KEY
-            value: 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
+          - name:  FLUENT_ELASTICSEARCH_PORT
+            value: "9200"
+          - name: FLUENTD_SYSTEMD_CONF
+            value: disable
         resources:
           limits:
             memory: 512Mi
