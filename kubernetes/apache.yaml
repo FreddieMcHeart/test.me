@@ -29,7 +29,7 @@ metadata:
 spec:
   selector:
     app: httpd
-  type: LoadBalancer
+  type: NodePort
   ports:
   - protocol: TCP
     port: 80
