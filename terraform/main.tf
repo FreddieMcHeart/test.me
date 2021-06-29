@@ -46,6 +46,19 @@ resource "aws_instance" "test-me-server" {
   tags = {
     Name = "Test.Me"
   }
+  connection {
+    type = "ssh"
+    user = "root"
+    private_key = file("/root/.ssh/private")
+    host = file("/home/ansible-host")
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "ansible-playbook /opt/test.me/ansible/post.yaml -i '${self.public_ip}'"
+    ]
+  }
+
 }
 
 resource "aws_elasticsearch_domain" "test-me" {
