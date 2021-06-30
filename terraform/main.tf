@@ -49,14 +49,15 @@ resource "aws_instance" "test-me-server" {
 
   provisioner "remote-exec" {
     inline = [
-      "ansible-playbook /opt/test.me/ansible/post.yaml -i '${self.public_ip}'"
+      "sleep 60",
+      "ansible-playbook -i '${self.public_ip},' /opt/test.me/ansible/post.yaml",
     ]
 
     connection {
       type = "ssh"
       user = "root"
       private_key = file("/root/.ssh/private")
-      host = file("/home/ansible-host")
+      host = '${file("/home/ansible-host")}'
     }
   }
 
