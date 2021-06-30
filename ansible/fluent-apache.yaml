@@ -4,7 +4,7 @@
     - name: Git clone repo
       git:
         repo: 'https://github.com/FreddieMcHeart/test.me'
-        dest: /home
+        dest: /home/test.me
 
     - name: Deploy FluentD
       k8s:
