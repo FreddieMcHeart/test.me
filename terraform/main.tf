@@ -50,7 +50,7 @@ resource "aws_instance" "test-me-server" {
   provisioner "local-exec" {
     inline = [
       "sleep 60",
-      "ansible-playbook -i '${self.public_ip},' /opt/test.me/ansible/post.yaml",
+      "ansible-playbook -i '${self.public_ip},' /home/test.me/ansible/post.yaml",
     ]
 
 //    connection {
