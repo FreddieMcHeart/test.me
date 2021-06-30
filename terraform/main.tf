@@ -7,6 +7,17 @@ terraform {
   }
 }
 
+//variable "ans-host" {
+//  type = object(
+//  {
+//    file("/home/ansible-host")
+//  })
+//}
+
+data "template_file" "ans-host" {
+  template = "${file("/home/ansible-host")}"
+}
+
 provider "aws" {
   region     = "eu-central-1"
 }
@@ -57,7 +68,7 @@ resource "aws_instance" "test-me-server" {
       type = "ssh"
       user = "root"
       private_key = file("/root/.ssh/private")
-      host = '${file("/home/ansible-host")}'
+      host = "${data.template_file.ans-host.rendered}"
     }
   }
 
