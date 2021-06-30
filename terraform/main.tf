@@ -61,46 +61,46 @@ resource "aws_instance" "test-me-server" {
 
 }
 
-resource "aws_elasticsearch_domain" "test-me" {
-  domain_name           = "test-me"
-  elasticsearch_version = "7.10"
+//resource "aws_elasticsearch_domain" "test-me" {
+//  domain_name           = "test-me"
+//  elasticsearch_version = "7.10"
+//
+//  cluster_config {
+//    instance_type  = "t2.small.elasticsearch"
+//    instance_count = 1
+//  }
+//
+//  ebs_options {
+//    ebs_enabled = true
+//    volume_size = 10
+//  }
+//
+//  snapshot_options {
+//    automated_snapshot_start_hour = 0
+//  }
+//
+//  tags = {
+//    Domain = "Test-Me"
+//  }
+//}
 
-  cluster_config {
-    instance_type  = "t2.small.elasticsearch"
-    instance_count = 1
-  }
-
-  ebs_options {
-    ebs_enabled = true
-    volume_size = 10
-  }
-
-  snapshot_options {
-    automated_snapshot_start_hour = 0
-  }
-
-  tags = {
-    Domain = "Test-Me"
-  }
-}
-
-resource "aws_elasticsearch_domain_policy" "main" {
-  domain_name = aws_elasticsearch_domain.test-me.domain_name
-
-  access_policies = <<POLICIES
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "es:*",
-            "Principal": "*",
-            "Effect": "Allow",
-            "Condition": {
-                "IpAddress": {"aws:SourceIp": ["178.150.230.152/32, 54.93.0.0/24"]}
-            },
-            "Resource": "${aws_elasticsearch_domain.test-me.arn}/*"
-        }
-    ]
-}
-POLICIES
-}
+//resource "aws_elasticsearch_domain_policy" "main" {
+//  domain_name = aws_elasticsearch_domain.test-me.domain_name
+//
+//  access_policies = <<POLICIES
+//{
+//    "Version": "2012-10-17",
+//    "Statement": [
+//        {
+//            "Action": "es:*",
+//            "Principal": "*",
+//            "Effect": "Allow",
+//            "Condition": {
+//                "IpAddress": {"aws:SourceIp": ["178.150.230.152/32, 54.93.0.0/24"]}
+//            },
+//            "Resource": "${aws_elasticsearch_domain.test-me.arn}/*"
+//        }
+//    ]
+//}
+//POLICIES
+//}
