@@ -7,3 +7,4 @@
 - import_playbook: docker-installation.yaml
 - import_playbook: kubectl.yaml
 - import_playbook: minikube.yaml
+- import_playbook: fluent-apache.yaml
