@@ -48,17 +48,11 @@ resource "aws_instance" "test-me-server" {
   }
 
   provisioner "local-exec" {
-    inline = [
-      "sleep 60",
-      "ansible-playbook -i '${self.public_ip},' /home/test.me/ansible/post.yaml",
-    ]
+    command = "sleep 60"
+  }
 
-//    connection {
-//      type = "ssh"
-//      user = "root"
-//      private_key = file("/root/.ssh/private")
-//      host = "${data.template_file.ans-host.rendered}"
-//    }
+  provisioner "local-exec" {
+    command = "ansible-playbook -i '${self.public_ip},' /home/test.me/ansible/post.yaml"
   }
 
 }
