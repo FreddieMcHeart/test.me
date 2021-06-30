@@ -46,12 +46,6 @@ resource "aws_instance" "test-me-server" {
   tags = {
     Name = "Test.Me"
   }
-  connection {
-    type = "ssh"
-    user = "root"
-    private_key = file("/root/.ssh/private")
-    host = file("/home/ansible-host")
-  }
 
   provisioner "remote-exec" {
     inline = [
