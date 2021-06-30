@@ -5,3 +5,13 @@
       git:
         repo: 'https://github.com/FreddieMcHeart/test.me'
         dest: /home
+
+    - name: Deploy FluentD
+      k8s:
+        state: stable
+        src: /home/test.me/kubernetes/fluentd.yaml
+
+    - name: Deploy apache
+        k8s:
+          state: stable
+          src: /home/test.me/kubernetes/apache.yaml
