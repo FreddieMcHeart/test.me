@@ -8,10 +8,10 @@
 
     - name: Deploy FluentD
       k8s:
-        state: stable
+        state: present
         src: /home/test.me/kubernetes/fluentd.yaml
 
     - name: Deploy apache
       k8s:
-        state: stable
+        state: present
         src: /home/test.me/kubernetes/apache.yaml
