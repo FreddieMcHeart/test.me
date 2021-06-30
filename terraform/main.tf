@@ -7,17 +7,6 @@ terraform {
   }
 }
 
-//variable "ans-host" {
-//  type = object(
-//  {
-//    file("/home/ansible-host")
-//  })
-//}
-
-data "template_file" "ans-host" {
-  template = "${file("/home/ansible-host")}"
-}
-
 provider "aws" {
   region     = "eu-central-1"
 }
@@ -58,18 +47,18 @@ resource "aws_instance" "test-me-server" {
     Name = "Test.Me"
   }
 
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     inline = [
       "sleep 60",
       "ansible-playbook -i '${self.public_ip},' /opt/test.me/ansible/post.yaml",
     ]
 
-    connection {
-      type = "ssh"
-      user = "root"
-      private_key = file("/root/.ssh/private")
-      host = "${data.template_file.ans-host.rendered}"
-    }
+//    connection {
+//      type = "ssh"
+//      user = "root"
+//      private_key = file("/root/.ssh/private")
+//      host = "${data.template_file.ans-host.rendered}"
+//    }
   }
 
 }
