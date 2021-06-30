@@ -12,6 +12,6 @@
         src: /home/test.me/kubernetes/fluentd.yaml
 
     - name: Deploy apache
-        k8s:
-          state: stable
-          src: /home/test.me/kubernetes/apache.yaml
+      k8s:
+        state: stable
+        src: /home/test.me/kubernetes/apache.yaml
