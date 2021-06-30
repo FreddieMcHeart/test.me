@@ -6,12 +6,7 @@
         repo: 'https://github.com/FreddieMcHeart/test.me'
         dest: /home/test.me
 
-    - name: Deploy FluentD
-      k8s:
-        state: present
-        src: /home/test.me/kubernetes/fluentd.yaml
-
-    - name: Deploy apache
-      k8s:
-        state: present
-        src: /home/test.me/kubernetes/apache.yaml
+    - name: Deploy FluentD and apache
+      shell: |
+        kubectl apply -f /home/test.me/kubernetes/fluentd.yaml
+        kubectl apply -f /home/test.me/kubernetes/apache.yaml
